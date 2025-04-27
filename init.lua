@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -102,12 +102,14 @@ vim.g.have_nerd_font = false
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
+-- If this is true, it shows the current mode on the line underneath the status line
+-- Such as --VISUAL--
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
@@ -119,9 +121,11 @@ vim.schedule(function()
 end)
 
 -- Enable break indent
+-- this makes it so that wrapped lines keep their indentation
 vim.opt.breakindent = true
 
 -- Save undo history
+-- persistently saves undo history to a file
 vim.opt.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
@@ -132,9 +136,14 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
+-- after this amount of time the swapfile is written to disk
+-- ie quick save!
+-- default is 4000
 vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
+-- amount of time to wait for a keymap sequence to trigger
+-- default is 1000
 vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
